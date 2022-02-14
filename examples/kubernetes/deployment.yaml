@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: go-proxy
-      spec:
+    spec:
       containers:
       - name: go-proxy
         image: atomys/go-proxy:0.1
