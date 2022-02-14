@@ -29,9 +29,9 @@ TODO
   - [ ] code
   - [ ] tests
   - [ ] release
-- [ ] app configuration
-  - [ ] code
-  - [ ] tests
+- [x] app configuration
+  - [x] code
+  - [x] tests
   - [ ] release
 - [ ] allow multiples domains
   - [ ] code
