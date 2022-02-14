@@ -1,5 +1,7 @@
 name: Tests 🛠️
 on: [push]
+permissions:
+  contents: read
 jobs:
   applications-test-units:
     runs-on: ubuntu-latest
@@ -11,17 +13,10 @@ jobs:
       with:
         go-version: '1.17'
         check-latest: true
-    - name: Setup GO environment
-      run: |
-        go mod download
-        go get -u golang.org/x/lint/golint
-        go get -t .
-    - name: Run Go Lint
-      run: |
-        golint -set_exit_status ./...
-    - name: Run Go vet
-      run: |
-        go vet ./...
+    - name: golangci-lint
+      uses: golangci/golangci-lint-action@v2
+      with:
+        version: latest
     - name: Run Unit tests
       run: |
         go test ./... -coverprofile coverage.out -covermode count
