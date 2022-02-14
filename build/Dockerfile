@@ -10,6 +10,10 @@ LABEL maintener "Atomys<contact@atomys.fr>"
 LABEL repository "https://gitlab.com/Atomys/go-proxy"
 
 COPY --from=build /build/go-proxy /go-proxy
-COPY config/ config/
+COPY web/ web/
 
-CMD [ "/go-proxy" ]
+EXPOSE 8080
+
+ENTRYPOINT [ "/go-proxy" ]
+
+CMD [ "serve" ]
