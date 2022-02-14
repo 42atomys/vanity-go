@@ -23,10 +23,7 @@ THE SOFTWARE.
 */
 
 import (
-	"fmt"
-	"net/http"
-
-	"atomys.codes/go-proxy/internal/pkg/handlers"
+	"atomys.codes/go-proxy/internal/pkg/server"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 )
@@ -38,10 +35,7 @@ var (
 		Use:   "serve",
 		Short: "Start the proxy server",
 		Run: func(cmd *cobra.Command, args []string) {
-			http.HandleFunc("/", handlers.GoProxyHandler)
-
-			log.Info().Msgf("Listening on port %d", *flagPort)
-			log.Fatal().Err(http.ListenAndServe(fmt.Sprintf(":%d", *flagPort), nil)).Msg("Error during server start")
+			log.Fatal().Err(server.Serve(flagPort)).Msg("Error during server start")
 		},
 	}
 )

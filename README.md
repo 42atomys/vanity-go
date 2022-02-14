@@ -25,22 +25,23 @@ TODO
 
 ## To-Do
 
-- [ ] app core
-  - [ ] code
-  - [ ] tests
+- [x] app core
+  - [x] code
+  - [x] tests
   - [ ] release
 - [x] app configuration
   - [x] code
   - [x] tests
   - [ ] release
-- [ ] allow multiples domains
-  - [ ] code
-  - [ ] tests
+- [x] allow multiples domains
+  - [x] code
+  - [x] tests
   - [ ] release
-- [ ] allow multiples redirect per domain
-  - [ ] code
-  - [ ] tests
+- [x] allow multiples redirect per domain
+  - [x] code
+  - [x] tests
   - [ ] release
+- [ ] make an example of deployment on Kubernetes
 - [ ] create a ctl to simplify configuration manipulation
   - [ ] code
   - [ ] tests
