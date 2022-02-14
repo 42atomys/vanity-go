@@ -21,27 +21,71 @@ With [42Stellar](https://github.com/42Stellar) project, I told myself that I did
 
 ## Usage
 
-TODO
+### Step 1 : Configuration file
+```yaml
+# API Version also used to protect against API or Schema changes
+# Actually, the available API versions are: 1
+apiVersion: 1
+# List of your proxies
+# You can add as many proxies as you want with logic:
+# 1 proxy per final domain
+proxies:
+- # namespace is the domain name used for following entries
+  # This can be a subdomain, a domain or a full domain name
+  # subdomain.example.org, example.org or example.org/subdomain
+  namespace: atomys.codes
+  # All entries of this namespace will be proxied to the following address
+  # Key are the name and the entrypoint/path of your proxied packages
+  # Value is the current URL of your package. The Destination URL must
+  # end with a valid protocol.
+  # Allowed protocol are: "bzr", "fossil", "git", "hg", "svn".
+  entries:
+    # Redirect go-get import to atomys.codes/go-proxy
+    go-proxy: https://github.com/42Atomys/go-proxy.git
+    # Redirect go-get import to atomys.codes/dns-updater
+    dns-updater: https://github.com/42Atomys/dns-updater.git
+    # Redirect go-get import to atomys.codes/subpath/gw2api-go
+    subpath/gw2api-go: https://gitlab.com/Atomys/gw2api-go.git
+```
+
+### Step 2: Launch it 🚀
+
+### With Docker image
+
+You can use the docker image [atomys/go-proxy](https://hub.docker.com/r/atomys/go-proxy) in a very simplistic way
+
+```sh
+# Basic launch instruction using the default configuration path
+docker run -it --rm -p 8080:8080 -v ${PWD}/myconfig.yaml:/config/goproxy.yaml atomys/go-proxy:latest
+# Use custom configuration file
+docker run -it --rm -p 8080:8080 -v ${PWD}/myconfig.yaml:/myconfig.yaml atomys/go-proxy:latest serve --config /myconfig.yaml
+```
+
+### With pre-builded binary
+
+```sh
+./goproxy serve --config config.yaml -p 8080
+```
 
 ## To-Do
 
 - [x] app core
   - [x] code
   - [x] tests
-  - [ ] release
+  - [x] release
 - [x] app configuration
   - [x] code
   - [x] tests
-  - [ ] release
+  - [x] release
 - [x] allow multiples domains
   - [x] code
   - [x] tests
-  - [ ] release
+  - [x] release
 - [x] allow multiples redirect per domain
   - [x] code
   - [x] tests
-  - [ ] release
-- [ ] make an example of deployment on Kubernetes
+  - [x] release
+- [x] make an example of deployment on Kubernetes
 - [ ] add a Prometheus metrics to add more monitoring
 - [ ] create a ctl to simplify configuration manipulation
   - [ ] code
