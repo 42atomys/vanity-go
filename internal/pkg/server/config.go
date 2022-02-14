@@ -21,7 +21,9 @@ type ConfigProxy struct {
 
 var config *Config
 
-func loadConfig() error {
+// LoadConfig loads the configuration from the config file
+// It returns an error if the config file is not found or if the config is invalid
+func LoadConfig() error {
 	var err error
 	if err = viper.Unmarshal(&config); err != nil {
 		return fmt.Errorf("error unmarshalling config")

@@ -1,7 +1,6 @@
 package server
 
 import (
-	"os"
 	"reflect"
 	"testing"
 
@@ -10,9 +9,6 @@ import (
 )
 
 func init() {
-	if err := os.Chdir("../../.."); err != nil {
-		panic(err)
-	}
 	viper.SetConfigFile("tests/config.test.yaml")
 	if err := viper.ReadInConfig(); err != nil {
 		panic(err)
@@ -73,7 +69,7 @@ func Test_loadV1Config(t *testing.T) {
 }
 
 func TestGetConfig(t *testing.T) {
-	loadConfig() //nolint
+	LoadConfig() //nolint
 
 	tests := []struct {
 		name string

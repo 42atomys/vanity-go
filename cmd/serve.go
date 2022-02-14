@@ -35,7 +35,12 @@ var (
 		Use:   "serve",
 		Short: "Start the proxy server",
 		Run: func(cmd *cobra.Command, args []string) {
-			log.Fatal().Err(server.Serve(flagPort)).Msg("Error during server start")
+			if err := server.LoadConfig(); err != nil {
+				log.Error().Err(err).Msg("error loading config")
+				return
+			}
+
+			log.Fatal().Err(server.Serve(*flagPort)).Msg("Error during server start")
 		},
 	}
 )
