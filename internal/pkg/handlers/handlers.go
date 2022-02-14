@@ -11,10 +11,13 @@ import (
 
 var tmp = template.Must(template.ParseFiles("web/template/index.html"))
 
+// Page is the data structure that is passed to the template
 type Page struct {
 	Repositories []repository.Repository
 }
 
+// GoProxyHandler is the handler for the proxy
+// It is the main entry point for the proxy
 func GoProxyHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Hello, world!")
 

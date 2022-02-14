@@ -2,6 +2,8 @@ package repository
 
 import "fmt"
 
+// Protocol is an enum that represents all
+// allowed protocols in the Remote Import Paths rule
 type Protocol string
 
 const (
@@ -26,7 +28,7 @@ func (rp Protocol) String() string {
 	return string(rp)
 }
 
-// Check if the protocol given is valid or not
+// Validate the protocol given is valid or not
 func (rp Protocol) Validate() error {
 	switch rp {
 	case ProtocolBzr, ProtocolFossil, ProtocolGit, ProtocolHg, ProtocolSvn:
