@@ -4,7 +4,7 @@ metadata:
   name: go-proxy
   labels:
     app.kubernetes.io/name: go-proxy
-    app.kubernetes.io/version: '0.1'
+    app.kubernetes.io/version: '0.3'
 spec:
   selector:
     matchLabels:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: go-proxy
-        image: atomys/go-proxy:0.1
+        image: atomys/go-proxy:0.3
         imagePullPolicy: IfNotPresent
         resources:
           requests:

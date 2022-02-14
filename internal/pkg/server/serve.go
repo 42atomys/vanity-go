@@ -1,12 +1,18 @@
 package server
 
 import (
+	"embed"
+	_ "embed"
 	"fmt"
 	"html/template"
+	"io/fs"
 	"net/http"
 
 	"github.com/rs/zerolog/log"
 )
+
+//go:embed templates/index.html
+var embededFiles embed.FS
 
 // Serve the proxy server
 func Serve(port *int) error {
@@ -14,7 +20,12 @@ func Serve(port *int) error {
 		return err
 	}
 
-	cachedTemplate = template.Must(template.ParseFiles("web/template/index.html"))
+	fsys, err := fs.Sub(embededFiles, "templates/index.html")
+	if err != nil {
+		panic(err)
+	}
+
+	cachedTemplate = template.Must(template.ParseFS(fsys))
 
 	http.HandleFunc("/", proxyHandler)
 
