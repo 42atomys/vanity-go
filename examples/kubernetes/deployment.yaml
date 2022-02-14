@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-proxy
+  labels:
+    app.kubernetes.io/name: go-proxy
+    app.kubernetes.io/version: '0.1'
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: go-proxy
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: go-proxy
+      spec:
+      containers:
+      - name: go-proxy
+        image: atomys/go-proxy:0.1
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            memory: "10Mi"
+            cpu: "10m"
+          limits:
+            memory: "15Mi"
+            cpu: "20m"
+        ports:
+        - containerPort: 8080
+          name: http
+        volumeMounts:
+        - mountPath: /config/goproxy.yaml
+          name: configuration
+          subPath: goproxy.yaml
+      volumes:
+      - name: configuration
+        configMap:
+          name: go-proxy-config

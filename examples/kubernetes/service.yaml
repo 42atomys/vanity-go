@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-proxy
+spec:
+  selector:
+    app.kubernetes.io/name: go-proxy
+  ports:
+  - port: 8080
+    targetPort: 8080
