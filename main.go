@@ -1,11 +1,16 @@
+/*
+Copyright © 2022 42Atomys
+
+*/
 package main
 
 import (
 	"os"
 
+	"atomys.codes/go-proxy/cmd"
+
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/spf13/viper"
 )
 
 func init() {
@@ -16,17 +21,8 @@ func init() {
 	} else {
 		zerolog.SetGlobalLevel(zerolog.InfoLevel)
 	}
-
-	viper.SetConfigName("goproxy")
-	viper.SetConfigType("yaml")
-	viper.AddConfigPath("./config")
-	viper.AutomaticEnv()
-	err := viper.ReadInConfig()
-	if err != nil {
-		log.Panic().Err(err).Msg("Fatal error on reading config file")
-	}
 }
 
 func main() {
-
+	cmd.Execute()
 }

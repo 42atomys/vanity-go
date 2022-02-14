@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="0; url=https://github.com/42Atomys">
+    {{- range .Repositories }}
+      <meta name="go-import" content="{{ .EntryPoint }} {{ .Protocol }} {{ .Destination }}">
+    {{- end }}
+  </head>
+  <body>
+    Nothing to see here; <a href="https://github.com/42Atomys">move along</a>.
+  </body>
+</html>
