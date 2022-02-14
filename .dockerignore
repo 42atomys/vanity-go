@@ -1,0 +1,6 @@
+.git
+.env*
+examples/
+build/
+deploy/
+README.md
