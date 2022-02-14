@@ -42,6 +42,7 @@ TODO
   - [x] tests
   - [ ] release
 - [ ] make an example of deployment on Kubernetes
+- [ ] add a Prometheus metrics to add more monitoring
 - [ ] create a ctl to simplify configuration manipulation
   - [ ] code
   - [ ] tests
