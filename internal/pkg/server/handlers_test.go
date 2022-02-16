@@ -8,10 +8,6 @@ import (
 	"testing"
 )
 
-func init() {
-
-}
-
 func TestProxyHandler(t *testing.T) {
 	LoadConfig() // nolint
 	cachedTemplate = template.Must(template.ParseFiles("templates/index.html"))
