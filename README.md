@@ -50,6 +50,15 @@ proxies:
 
 ### Step 2: Launch it 🚀
 
+> **TIPS**: When you create your routing, configure it to only take into account the query params `go-get=1` to follow the GoLang directive (https://pkg.go.dev/cmd/go#hdr-Remote_import_paths)
+
+### With Kubernetes
+
+If you want to use kubernetes, for production or personnal use, refere to example/kubernetes:
+
+https://github.com/42Atomys/go-proxy/tree/main/examples/kubernetes
+
+
 ### With Docker image
 
 You can use the docker image [atomys/go-proxy](https://hub.docker.com/r/atomys/go-proxy) in a very simplistic way

@@ -1,10 +1,28 @@
+---
+# Configuration Map for deployment.yaml
+# Edit it to change the configuration of your proxy
+# Don't forget to restart your proxy after changing it
+#
+# Path: examples/kubernetes/deployment.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: go-proxy-config
+data:
+  goproxy.yaml: |
+    apiVersion: 1
+    proxies:
+    - namespace: example.org
+      entries:
+        repo: https://github.com/user/repo.git
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-proxy
   labels:
     app.kubernetes.io/name: go-proxy
-    app.kubernetes.io/version: '0.3'
+    app.kubernetes.io/version: '1.0'
 spec:
   selector:
     matchLabels:
@@ -16,7 +34,7 @@ spec:
     spec:
       containers:
       - name: go-proxy
-        image: atomys/go-proxy:0.3
+        image: atomys/go-proxy:1.0
         imagePullPolicy: IfNotPresent
         resources:
           requests:
@@ -36,3 +54,14 @@ spec:
       - name: configuration
         configMap:
           name: go-proxy-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-proxy
+spec:
+  selector:
+    app.kubernetes.io/name: go-proxy
+  ports:
+  - port: 8080
+    targetPort: 8080
