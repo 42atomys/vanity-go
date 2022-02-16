@@ -69,28 +69,7 @@ docker run -it --rm -p 8080:8080 -v ${PWD}/myconfig.yaml:/myconfig.yaml atomys/g
 
 ## To-Do
 
-- [x] app core
-  - [x] code
-  - [x] tests
-  - [x] release
-- [x] app configuration
-  - [x] code
-  - [x] tests
-  - [x] release
-- [x] allow multiples domains
-  - [x] code
-  - [x] tests
-  - [x] release
-- [x] allow multiples redirect per domain
-  - [x] code
-  - [x] tests
-  - [x] release
-- [x] make an example of deployment on Kubernetes
-- [ ] add a Prometheus metrics to add more monitoring
-- [ ] create a ctl to simplify configuration manipulation
-  - [ ] code
-  - [ ] tests
-  - [ ] release
+TO-Do is moving on Project Section: https://github.com/42Atomys/go-proxy/projects?type=beta
 
 # Contribution
 
