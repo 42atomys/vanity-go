@@ -4,10 +4,8 @@ package server
 
 import (
 	"embed"
-	_ "embed"
 	"fmt"
 	"html/template"
-	"io/fs"
 	"net/http"
 
 	"github.com/rs/zerolog/log"
@@ -18,16 +16,11 @@ var embededFiles embed.FS
 
 // Serve the proxy server
 func Serve(port int) error {
-	fsys, err := fs.Sub(embededFiles, "templates/index.html")
-	if err != nil {
-		panic(err)
-	}
-
 	if !validPort(port) {
 		return fmt.Errorf("invalid port")
 	}
 
-	cachedTemplate = template.Must(template.ParseFS(fsys))
+	cachedTemplate = template.Must(template.ParseFS(embededFiles, "templates/index.html"))
 	http.HandleFunc("/", proxyHandler)
 	log.Info().Msgf("Listening on port %d", port)
 	return http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
