@@ -25,7 +25,7 @@ jobs:
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
         goversion: "1.17.6"
-        binary_name: vanity
+        binary_name: vanity-go
         extra_files: LICENSE README.md
   docker-image:
     runs-on: ubuntu-latest

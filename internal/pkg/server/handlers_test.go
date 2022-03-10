@@ -41,15 +41,15 @@ func TestProxyHandler(t *testing.T) {
 	}{
 		{
 			"vanity-go",
-			"<meta name=\"go-import\" content=\"vanity-go git https://github.com/42Atomys/vanity-go.git\">",
+			"<meta name=\"go-import\" content=\"atomys.lab/vanity-go git https://github.com/42Atomys/vanity-go.git\">",
 		},
 		{
 			"dns-updater",
-			"<meta name=\"go-import\" content=\"dns-updater git https://github.com/42Atomys/dns-updater.git\">",
+			"<meta name=\"go-import\" content=\"atomys.lab/dns-updater git https://github.com/42Atomys/dns-updater.git\">",
 		},
 		{
 			"subpath/gw2api-go",
-			"<meta name=\"go-import\" content=\"subpath/gw2api-go git https://gitlab.com/Atomys/gw2api-go.git\">",
+			"<meta name=\"go-import\" content=\"atomys.lab/subpath/gw2api-go git https://gitlab.com/Atomys/gw2api-go.git\">",
 		},
 	}
 

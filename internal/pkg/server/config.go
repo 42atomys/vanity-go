@@ -64,7 +64,7 @@ func loadV1Config(cfg *Config) error {
 
 	for _, proxy := range cfg.Proxies {
 		for entrypoint, destination := range proxy.Entries {
-			repo, err := repository.New(entrypoint, destination)
+			repo, err := repository.New(entrypoint, destination, proxy.Namespace)
 			if err != nil {
 				log.Error().Err(err).Str("entrypoint", entrypoint).Str("destination", destination).Msg("error creating repository")
 				return err
