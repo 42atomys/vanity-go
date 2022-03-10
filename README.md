@@ -44,6 +44,9 @@ proxies:
   # end with a valid protocol.
   # Allowed protocol are: "bzr", "fossil", "git", "hg", "svn".
   entries:
+    # Root redirection can be catch with "-" or "/" as key
+    # Will responds to the following URL: atomys.codes
+    -: https://github.com/42Atomys/vanity-go.git
     # Redirect go-get import to atomys.codes/vanity-go
     vanity-go: https://github.com/42Atomys/vanity-go.git
     # Redirect go-get import to atomys.codes/webhooked
