@@ -25,7 +25,7 @@ jobs:
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
         goversion: "1.17.6"
-        binary_name: go-proxy
+        binary_name: vanity
         extra_files: LICENSE README.md
   docker-image:
     runs-on: ubuntu-latest
@@ -51,5 +51,5 @@ jobs:
         file: build/Dockerfile
         push: true
         tags: |
-          atomys/go-proxy:${{ github.ref_name }}
-          atomys/go-proxy:latest
+          atomys/vanity-go:${{ github.ref_name }}
+          atomys/vanity-go:latest

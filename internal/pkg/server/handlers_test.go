@@ -40,8 +40,8 @@ func TestProxyHandler(t *testing.T) {
 		contains string
 	}{
 		{
-			"go-proxy",
-			"<meta name=\"go-import\" content=\"go-proxy git https://github.com/42Atomys/go-proxy.git\">",
+			"vanity-go",
+			"<meta name=\"go-import\" content=\"vanity-go git https://github.com/42Atomys/vanity-go.git\">",
 		},
 		{
 			"dns-updater",

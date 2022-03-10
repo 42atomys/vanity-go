@@ -3,9 +3,10 @@ package server
 import (
 	"fmt"
 
-	"atomys.codes/go-proxy/pkg/repository"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
+
+	"atomys.codes/vanity-go/pkg/repository"
 )
 
 type Config struct {

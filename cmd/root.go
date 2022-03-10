@@ -17,7 +17,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use: "goproxy",
+	Use: "vanitygo",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -36,7 +36,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is config/goproxy.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is config/vanity.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -45,7 +45,7 @@ func initConfig() {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
 	} else {
-		viper.SetConfigName("goproxy")
+		viper.SetConfigName("vanity")
 		viper.SetConfigType("yaml")
 		viper.AddConfigPath("./config")
 	}

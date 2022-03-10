@@ -1,15 +1,19 @@
-# Simple Go Proxy
+# VanityGO : Vanity import paths for Go package
 
-[![Release 🎉](https://github.com/42Atomys/go-proxy/actions/workflows/release.yaml/badge.svg)](https://github.com/42Atomys/go-proxy/actions/workflows/release.yaml)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/42atomys/go-proxy?label=last%20release)
-![GitHub contributors](https://img.shields.io/github/contributors/42Atomys/go-proxy?color=blueviolet)
-![GitHub Repo stars](https://img.shields.io/github/stars/42atomys/go-proxy?color=blueviolet)
-[![Docker Pull](https://img.shields.io/docker/pulls/atomys/go-proxy)](https://hub.docker.com/r/atomys/go-proxy)
-[![Docker Pull](https://img.shields.io/docker/image-size/atomys/go-proxy)](https://hub.docker.com/r/atomys/go-proxy)
+[![Release 🎉](https://github.com/42Atomys/vanity-go/actions/workflows/release.yaml/badge.svg)](https://github.com/42Atomys/vanity-go/actions/workflows/release.yaml)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/42atomys/vanity-go?label=last%20release)
+![GitHub contributors](https://img.shields.io/github/contributors/42Atomys/vanity-go?color=blueviolet)
+![GitHub Repo stars](https://img.shields.io/github/stars/42atomys/vanity-go?color=blueviolet)
+[![Docker Pull](https://img.shields.io/docker/pulls/atomys/vanity-go)](https://hub.docker.com/r/atomys/vanity-go)
+[![Docker Pull](https://img.shields.io/docker/image-size/atomys/vanity-go)](https://hub.docker.com/r/atomys/vanity-go)
 
 Simple go application that allows you to share your code with a custom domain name instead of github or gitlab links or other git protocols.
 
-Say goodbye to `github.com/42Atomys/go-proxy` imports. Say hello to `atomys.codes/go-proxy` imports 🎉
+Say goodbye to `github.com/42Atomys/vanity-go` imports. Say hello to `atomys.codes/vanity-go` imports 🎉
+
+
+When choosing a domain, keep in mind that it will be the name of your package for the foreseeable future, so choose a name that you’ll still like tomorrow.
+People tend to choose domains with `.io`, `.codes` and `.dev` TLDs for their pacakges/software projects these days.
 
 ## Motivation
 
@@ -17,7 +21,7 @@ At the beginning to clarify my code especially with gitlab and subfolders (ex: `
 
 Error 404 in all directions, in all repositories. I created a classic `index.html` file but having to connect to a server to do vim (sorry emacs) is very annoying.
 
-With [42Stellar](https://github.com/42Stellar) project, I told myself that I didn't want to redo everything, so I put this repo online
+With [webhooked](https://github.com/42Atomys/webhooked) project, I told myself that I didn't want to redo everything, so I put this repo online
 
 ## Usage
 
@@ -40,12 +44,14 @@ proxies:
   # end with a valid protocol.
   # Allowed protocol are: "bzr", "fossil", "git", "hg", "svn".
   entries:
-    # Redirect go-get import to atomys.codes/go-proxy
-    go-proxy: https://github.com/42Atomys/go-proxy.git
+    # Redirect go-get import to atomys.codes/vanity-go
+    vanity-go: https://github.com/42Atomys/vanity-go.git
+    # Redirect go-get import to atomys.codes/webhooked
+    webhooked: https://github.com/42Atomys/webhooked.git
     # Redirect go-get import to atomys.codes/dns-updater
     dns-updater: https://github.com/42Atomys/dns-updater.git
     # Redirect go-get import to atomys.codes/subpath/gw2api-go
-    subpath/gw2api-go: https://gitlab.com/Atomys/gw2api-go.git
+    sdk/gw2api-go: https://gitlab.com/Atomys/gw2api-go.git
 ```
 
 ### Step 2: Launch it 🚀
@@ -56,29 +62,29 @@ proxies:
 
 If you want to use kubernetes, for production or personnal use, refere to example/kubernetes:
 
-https://github.com/42Atomys/go-proxy/tree/main/examples/kubernetes
+https://github.com/42Atomys/vanity-go/tree/main/examples/kubernetes
 
 
 ### With Docker image
 
-You can use the docker image [atomys/go-proxy](https://hub.docker.com/r/atomys/go-proxy) in a very simplistic way
+You can use the docker image [atomys/vanity-go](https://hub.docker.com/r/atomys/vanity-go) in a very simplistic way
 
 ```sh
 # Basic launch instruction using the default configuration path
-docker run -it --rm -p 8080:8080 -v ${PWD}/myconfig.yaml:/config/goproxy.yaml atomys/go-proxy:latest
+docker run -it --rm -p 8080:8080 -v ${PWD}/myconfig.yaml:/config/vanity.yaml atomys/vanity-go:latest
 # Use custom configuration file
-docker run -it --rm -p 8080:8080 -v ${PWD}/myconfig.yaml:/myconfig.yaml atomys/go-proxy:latest serve --config /myconfig.yaml
+docker run -it --rm -p 8080:8080 -v ${PWD}/myconfig.yaml:/myconfig.yaml atomys/vanity-go:latest serve --config /myconfig.yaml
 ```
 
 ### With pre-builded binary
 
 ```sh
-./goproxy serve --config config.yaml -p 8080
+./vanity-go serve --config config.yaml -p 8080
 ```
 
 ## To-Do
 
-TO-Do is moving on Project Section: https://github.com/42Atomys/go-proxy/projects?type=beta
+TO-Do is moving on Project Section: https://github.com/42Atomys/vanity-go/projects?type=beta
 
 # Contribution
 

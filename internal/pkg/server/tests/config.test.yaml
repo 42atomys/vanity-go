@@ -15,14 +15,14 @@ proxies:
   # end with a valid protocol.
   # Allowed protocol are: "bzr", "fossil", "git", "hg", "svn".
   entries:
-    # Will responds to the following URL: atomys.codes/go-proxy
-    go-proxy: https://github.com/42Atomys/go-proxy.git
+    # Will responds to the following URL: atomys.codes/vanity-go
+    vanity-go: https://github.com/42Atomys/vanity-go.git
     # Will responds to the following URL: atomys.codes/dns-updater
     dns-updater: https://github.com/42Atomys/dns-updater.git
     # Will responds to the following URL: atomys.codes/subpath/gw2api-go
     subpath/gw2api-go: https://gitlab.com/Atomys/gw2api-go.git
 - namespace: broken
   entries:
-    no-protocol: https://github.com/42Atomys/go-proxy
+    no-protocol: https://github.com/42Atomys/vanity-go
     null-destination: null
     null: 1

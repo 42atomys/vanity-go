@@ -4,8 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"atomys.codes/go-proxy/pkg/repository"
 	"github.com/spf13/viper"
+
+	"atomys.codes/vanity-go/pkg/repository"
 )
 
 func init() {

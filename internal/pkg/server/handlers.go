@@ -4,8 +4,9 @@ import (
 	"html/template"
 	"net/http"
 
-	"atomys.codes/go-proxy/pkg/repository"
 	"github.com/rs/zerolog/log"
+
+	"atomys.codes/vanity-go/pkg/repository"
 )
 
 // Page is the data structure that is passed to the template

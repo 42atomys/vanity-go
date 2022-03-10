@@ -7,7 +7,7 @@ package main
 import (
 	"os"
 
-	"atomys.codes/go-proxy/cmd"
+	"atomys.codes/vanity-go/cmd"
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"

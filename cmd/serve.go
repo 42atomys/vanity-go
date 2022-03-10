@@ -23,9 +23,10 @@ THE SOFTWARE.
 */
 
 import (
-	"atomys.codes/go-proxy/internal/pkg/server"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
+
+	"atomys.codes/vanity-go/internal/pkg/server"
 )
 
 var (
@@ -33,7 +34,7 @@ var (
 	// serveCmd represents the serve command
 	serveCmd = &cobra.Command{
 		Use:   "serve",
-		Short: "Start the proxy server",
+		Short: "Start the vanity go server",
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := server.LoadConfig(); err != nil {
 				log.Error().Err(err).Msg("error loading config")

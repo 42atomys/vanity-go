@@ -1,4 +1,4 @@
-module atomys.codes/go-proxy
+module atomys.codes/vanity-go
 
 go 1.17
 
